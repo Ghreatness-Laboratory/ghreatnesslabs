@@ -17,13 +17,21 @@ export function Header() {
   return <header className={`fixed top-0 z-50 w-full border-b border-white/10 transition-all ${small ? 'bg-navy/95 shadow-xl' : 'bg-navy/75'} backdrop-blur-md`}>
     <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all sm:px-5 ${small ? 'h-16' : 'h-[68px] md:h-20'}`}>
       <Link href="/" className="focus-ring text-base font-black tracking-[.18em] text-white sm:text-lg">TASOL<span className="text-cyan">.</span></Link>
-      <div className="relative flex items-center gap-4">
+      <div className="relative flex items-center gap-[18px]">
         <AnimatePresence initial={false}>{searchOpen && <motion.form role="search" aria-label="Site search" className="absolute right-0 top-1/2 flex w-[min(72vw,340px)] -translate-y-1/2 items-center rounded-md border border-white/20 bg-navy p-1 shadow-xl sm:w-[340px]" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: .18 }} onSubmit={e => e.preventDefault()}>
           <label htmlFor="site-search" className="sr-only">Search TASOL</label><input ref={searchInput} id="site-search" type="search" placeholder="Search TASOL..." className="focus-ring min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-white placeholder:text-white/55"/>
           <button type="button" aria-label="Close search" onClick={() => setSearchOpen(false)} className="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded text-white transition hover:text-cyan"><CloseIcon/></button>
         </motion.form>}</AnimatePresence>
-        <button aria-label="Open search" aria-expanded={searchOpen} onClick={() => setSearchOpen(true)} className="focus-ring grid h-11 w-11 place-items-center rounded-md text-white transition hover:text-cyan"><SearchIcon/></button>
-        <button aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(true)} className="focus-ring grid h-11 w-11 place-items-center rounded-md border border-white/15 text-white transition hover:border-cyan hover:text-cyan"><MenuIcon/></button>
+        <nav aria-label="Quick navigation" className="flex items-center">
+          <Link href="/" aria-label="Home" className="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-md text-[rgba(255,255,255,0.55)] transition hover:text-white"><HomeIcon/></Link>
+          <Link href="/about" aria-label="About" className="focus-ring hidden h-11 w-11 shrink-0 place-items-center rounded-md text-[rgba(255,255,255,0.55)] transition hover:text-white min-[400px]:grid"><BuildingIcon/></Link>
+          <Link href="/contact" aria-label="Contact" className="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-md text-[rgba(255,255,255,0.55)] transition hover:text-white"><MailIcon/></Link>
+        </nav>
+        <span aria-hidden="true" className="h-4 w-px shrink-0 bg-[rgba(255,255,255,0.15)]"/>
+        <div className="flex items-center">
+          <button aria-label="Open search" aria-expanded={searchOpen} onClick={() => setSearchOpen(true)} className="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-md text-white transition hover:text-cyan"><SearchIcon/></button>
+          <button aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(true)} className="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-md border border-white/15 text-white transition hover:border-cyan hover:text-cyan"><MenuIcon/></button>
+        </div>
       </div>
     </div>
     <AnimatePresence>{open && <><motion.button aria-label="Close navigation menu" className="fixed inset-0 top-[68px] z-[-1] w-full bg-ink/65 md:top-20" onClick={() => setOpen(false)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
@@ -36,7 +44,10 @@ export function Header() {
   </header>;
 }
 
-function SearchIcon() { return <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>; }
+function HomeIcon() { return <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>; }
+function BuildingIcon() { return <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17M2 21h20M8 7h2m-2 4h2m-2 4h2m6-6h2m-2 4h2m-2 4h2"/></svg>; }
+function MailIcon() { return <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg>; }
+function SearchIcon() { return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>; }
 function CloseIcon() { return <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>; }
 function MenuIcon() { return <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>; }
 
