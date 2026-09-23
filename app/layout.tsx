@@ -1,2 +1,2 @@
-import './globals.css';import {Inter} from 'next/font/google';import {Header,Footer,Chatbot} from '@/components/Site';
-const inter=Inter({subsets:['latin'],variable:'--font-inter'});export const metadata={title:'TASOL Marine Services',description:'Marine, energy and technical services'};export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body className={inter.variable+' font-sans'}><Header/><main>{children}</main><Footer/><Chatbot/></body></html>}
+import './globals.css';import {Header,Footer,Chatbot} from '@/components/Site';
+export const metadata={title:'TASOL Marine Services',description:'Marine, energy and technical services'};export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body><Header/><main>{children}</main><Footer/><Chatbot/></body></html>}
