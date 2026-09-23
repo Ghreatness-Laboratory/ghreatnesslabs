@@ -5,7 +5,7 @@
 :root { --navy: #0b1e3c; --ink: #071329; --cyan: #31d6df; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; color: #17304c; background: #fff; font-family: Inter, Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { margin: 0; color: #17304c; background: #fff; font-family: Arial, ui-sans-serif, system-ui, sans-serif; }
 button, input, select, textarea { font: inherit; }
 .focus-ring:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 .nav-link { position: relative; min-height: 44px; display: inline-flex; align-items: center; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: color .2s ease; }
@@ -21,5 +21,6 @@ button, input, select, textarea { font: inherit; }
 .marquee-track { display: flex; width: max-content; gap: 1rem; animation: marquee 24s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(calc(-50% - .5rem)); } }
+@media (max-width: 640px) { .marquee-track { gap: .75rem; animation-duration: 18s; } }
 @keyframes drift { from { transform: translate3d(-2%, -1%, 0) rotate(-2deg); } to { transform: translate3d(2%, 2%, 0) rotate(2deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
