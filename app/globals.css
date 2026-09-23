@@ -17,7 +17,14 @@ button, input, select, textarea { font: inherit; }
 .nav-link { position: relative; min-height: 44px; display: inline-flex; align-items: center; font-size: .72rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; transition: color .2s ease; }
 .nav-link::after { content: ''; position: absolute; bottom: 9px; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width .2s ease; }
 .nav-link:hover::after { width: 100%; }
-.hero-grid { background-image: linear-gradient(110deg, rgba(7,19,41,.95), rgba(7,25,54,.58)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=2200&q=85'); background-position: center; background-size: cover; }
+.hero-grid { background-image: linear-gradient(160deg, rgba(10,28,48,.85) 0%, rgba(14,42,69,.75) 60%, rgba(10,28,48,.9) 100%), url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2200&q=85'); background-position: center; background-size: cover; }
+.page-shell { padding-top: 68px; }
+.page-hero { padding: 22px 18px 30px; }
+.page-section { padding: 56px 20px; }
+.icon-badge { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 auto; border-radius: 10px; color: var(--accent); background: rgba(14,155,206,.13); }
+.content-card { border: 1px solid rgb(226 232 240); border-radius: 12px; background: white; padding: 20px; }
+.button-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (min-width: 640px) { .page-shell { padding-top: 80px; } .page-hero { padding: 72px 20px; } .page-section { padding: 80px 20px; } }
 .hero-heading { line-height: 1.15 !important; }
 .hero-orbit { position: absolute; inset: -30%; opacity: .36; background: radial-gradient(circle at 65% 38%, rgba(49,214,223,.42), transparent 18%), linear-gradient(125deg, transparent 44%, rgba(49,214,223,.2) 45%, transparent 46%); animation: drift 12s ease-in-out infinite alternate; }
 .ocean { background: radial-gradient(circle at 75% 20%, #174f76 0, transparent 36%), #0b1e3c; }
