@@ -18,6 +18,7 @@ button, input, select, textarea { font: inherit; }
 .nav-link::after { content: ''; position: absolute; bottom: 9px; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width .2s ease; }
 .nav-link:hover::after { width: 100%; }
 .hero-grid { background-image: linear-gradient(110deg, rgba(7,19,41,.95), rgba(7,25,54,.58)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=2200&q=85'); background-position: center; background-size: cover; }
+.hero-heading { line-height: 1.15 !important; }
 .hero-orbit { position: absolute; inset: -30%; opacity: .36; background: radial-gradient(circle at 65% 38%, rgba(49,214,223,.42), transparent 18%), linear-gradient(125deg, transparent 44%, rgba(49,214,223,.2) 45%, transparent 46%); animation: drift 12s ease-in-out infinite alternate; }
 .ocean { background: radial-gradient(circle at 75% 20%, #174f76 0, transparent 36%), #0b1e3c; }
 .interactive-card { transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
