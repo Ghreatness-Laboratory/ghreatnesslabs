@@ -8,6 +8,25 @@ import { services, nav } from '@/components/data';
 
 export { services };
 
+type IconName = 'anchor' | 'shield-check' | 'ship' | 'certificate' | 'target' | 'telescope' | 'droplet' | 'bolt' | 'sun' | 'settings' | 'clock-check' | 'clipboard-check' | 'building' | 'mail' | 'arrow-right' | 'check';
+export function Icon({ name, size = 19 }: { name: IconName, size?: number }) {
+  const props = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
+  const paths: Record<IconName, React.ReactNode> = {
+    anchor: <><circle cx="12" cy="5" r="2.5"/><path d="M12 7.5V21M5 12H2.5a9.5 9.5 0 0 0 19 0H19M5 16.5 12 21l7-4.5M9 10h6"/></>,
+    'shield-check': <><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></>,
+    ship: <><path d="M4 15h16l-2 4H6l-2-4ZM7 15V8h10v7M10 8V5h4v3M3 21c1.2-1 2.5-1 3.7 0 1.2-1 2.5-1 3.7 0 1.2-1 2.5-1 3.7 0 1.2-1 2.5-1 3.7 0"/></>,
+    certificate: <><circle cx="12" cy="10" r="4"/><path d="M8.8 12.4 8 21l4-2 4 2-.8-8.6M7 4h10"/></>, target: <><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="m16.5 7.5 4-4M17 3.5h3.5V7"/></>, telescope: <><path d="m5 9 11-3 2 6-11 3-2-6ZM13 14l2 6M8 15l-2 5M4 20h14M17 8l2-2"/></>,
+    droplet: <path d="M12 3s-6 6.7-6 11a6 6 0 0 0 12 0c0-4.3-6-11-6-11Z"/>, bolt: <path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/>, sun: <><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></>,
+    settings: <><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08A1.7 1.7 0 0 0 10.68 18.66a1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7.02 15a1.7 1.7 0 0 0-1.56-1.03h-.08v-3h.08A1.7 1.7 0 0 0 7.02 9.94a1.7 1.7 0 0 0-.34-1.88l-.06-.06L8.74 5.88l.06.06a1.7 1.7 0 0 0 1.88.34 1.7 1.7 0 0 0 1.03-1.56v-.08h3v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03h.08v3h-.08A1.7 1.7 0 0 0 19.4 15Z"/></>,
+    'clock-check': <><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2M8.5 17l1.5 1.5 3.5-3.5"/></>, 'clipboard-check': <><path d="M8 4h8M9 3h6v3H9zM6 6h12v15H6z"/><path d="m9 14 2 2 4-4"/></>, building: <path d="M4 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17M2 21h20M8 7h2m-2 4h2m-2 4h2m6-6h2m-2 4h2m-2 4h2"/>, mail: <><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></>,
+    'arrow-right': <path d="M5 12h14M13 6l6 6-6 6"/>, check: <path d="m5 12 4 4L19 6"/>
+  };
+  return <svg {...props}>{paths[name]}</svg>;
+}
+export function IconBadge({ name }: { name: IconName }) { return <span className="icon-badge"><Icon name={name}/></span>; }
+export function CheckList({ items }: { items: string[] }) { return <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600">{items.map(item => <li key={item} className="flex gap-2"><span className="mt-1 shrink-0 text-cyan"><Icon name="check" size={15}/></span>{item}</li>)}</ul>; }
+export function PageHero({ eyebrow, title, accent, copy }: { eyebrow: string, title: string, accent?: string, copy?: string }) { return <section className="hero-grid page-hero text-white"><div className="mx-auto max-w-7xl"><p className="eyebrow text-[10.5px]">◆ TASOL MARINE SERVICES LTD ◆ {eyebrow}</p><h1 className="hero-heading mt-[10px] max-w-4xl text-[30px] sm:text-5xl">{title}{accent && <> <span className="heading-accent">{accent}</span></>}</h1>{copy && <p className="mt-[10px] max-w-2xl text-[15px] leading-6 text-white/75 sm:text-base">{copy}</p>}</div></section>; }
+
 export function Header() {
   const path = usePathname(); const [open, setOpen] = useState(false); const [searchOpen, setSearchOpen] = useState(false); const [small, setSmall] = useState(false); const searchInput = useRef<HTMLInputElement>(null);
   useEffect(() => { const onScroll = () => setSmall(window.scrollY > 20); onScroll(); addEventListener('scroll', onScroll); return () => removeEventListener('scroll', onScroll); }, []);
