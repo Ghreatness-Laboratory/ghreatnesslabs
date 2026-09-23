@@ -8,7 +8,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: #17304c; background: #fff; font-family: 'Inter', sans-serif; font-weight: 400; }
-h1, h2, h3 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 700 !important; line-height: 1.2 !important; letter-spacing: -0.01em !important; }
+h1, h2, h3, h4, h5, h6, .card-title { font-family: 'Space Grotesk', sans-serif !important; font-weight: 700 !important; line-height: 1.2 !important; letter-spacing: -0.01em !important; }
 button, input, select, textarea, .nav-link { font-family: 'Inter', sans-serif; }
 .eyebrow { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .heading-accent { color: var(--accent); }
